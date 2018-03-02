@@ -420,6 +420,15 @@ void FROSBridgeHandler::PublishMsg(FString InTopic, TSharedPtr<FROSBridgeMsg> In
     Client->Send(MsgToSend);
 }
 
+void FROSBridgeHandler::PublishFastMsg(FString InTopic, TArray<uint8> &InMsg)
+{
+	if (!Client.IsValid()) return;
+	if (!bIsClientConnected) return;
+
+	//Client->SendText(InMsg.GetData(), InMsg.Num());
+	Client->Send(InMsg.GetData(), InMsg.Num());
+}
+
 void FROSBridgeHandler::CallService(TSharedPtr<FROSBridgeSrvClient> InSrvClient,
                                     TSharedPtr<FROSBridgeSrv::SrvRequest> InRequest,
                                     TSharedPtr<FROSBridgeSrv::SrvResponse> InResponse)

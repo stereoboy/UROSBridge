@@ -203,6 +203,9 @@ public:
     // Publish ROS message to topics
     void PublishMsg(FString Topic, TSharedPtr<FROSBridgeMsg> Msg);
 
+	// Publish ROS message to topics
+	void PublishFastMsg(FString Topic, TArray<uint8> &Msg);
+
     // Call external ROS service
     void CallService(TSharedPtr<FROSBridgeSrvClient> SrvClient,
         TSharedPtr<FROSBridgeSrv::SrvRequest> Request,
