@@ -1,8 +1,8 @@
 #pragma once
 #include "ROSBridgeMsg.h"
 
-#include "std_msgs/String.h"
 #include "std_msgs/Header.h"
+
 namespace sensor_msgs
 {
 	class JointState : public FROSBridgeMsg
