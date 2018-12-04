@@ -21,10 +21,10 @@ namespace geometry_msgs
 		TransformStamped(
 			std_msgs::Header InHeader,
 			FString InChildFrameId,
-			geometry_msgs::Transform Transform) :
+			geometry_msgs::Transform InTransform) :
 			Header(InHeader),
 			ChildFrameId(InChildFrameId),
-			Transform(Transform)
+			Transform(InTransform)
 		{
 			MsgType = "geometry_msgs/TransformStamped";
 		}

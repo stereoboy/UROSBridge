@@ -78,7 +78,10 @@ namespace sensor_msgs
 
 			TArray<TSharedPtr<FJsonValue>> ValArray;
 			for (auto &val : Values)
-				ValArray.Add(MakeShareable<FJsonValue>(new FJsonValueNumber(val)));
+			{
+				TSharedPtr<FJsonValue> Ptr = MakeShareable(new FJsonValueNumber(val));
+				ValArray.Add(Ptr);
+			}
 
 			Object->SetStringField(TEXT("name"), Name);
 			Object->SetArrayField(TEXT("values"), ValArray);
